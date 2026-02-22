@@ -1,2 +1,2 @@
-# connected-dots
-A python program that solves 'connect the dots' grid using numpy, opencv, etc
+# DotSolve
+An Automated system which solves your puzzles for you !

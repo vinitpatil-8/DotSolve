@@ -1,4 +1,4 @@
-# DotSolve
+# DotSolve AI
 
 ## Project Description
 DotSolve is a web application developed using React, TypeScript, and Vite. This application allows users to solve connect-the-dots puzzles interactively, providing an engaging experience by blending learning with fun.

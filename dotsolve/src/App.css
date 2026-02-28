@@ -1,1 +1,27 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.full-body {
+  background-color: #F1D624;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+@theme{
+  --font-oswald: "Oswald", sans-serif;
+}
+
+@layer utilities {
+  .text-stroke-2 {
+    -webkit-text-stroke: 2px black;
+  }
+  .shadow {
+    text-shadow: -4px 4px 0px black;
+  }
+  .shadow:hover {
+    text-shadow: -1.5px 1.5px 0px black;
+  }
+  
+}

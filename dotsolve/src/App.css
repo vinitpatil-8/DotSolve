@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import "tailwindcss";
 
 .full-body {
   background-color: #F1D624;
@@ -17,11 +17,17 @@
   .text-stroke-2 {
     -webkit-text-stroke: 2px black;
   }
-  .shadow {
+  .customshadow {
     text-shadow: -4px 4px 0px black;
   }
-  .shadow:hover {
-    text-shadow: -1.5px 1.5px 0px black;
+  .customshadow:hover {
+    text-shadow: -2px 2px 0px black;
+  }
+  .custombox{
+    box-shadow: -4px 4px 0px black;
+  }
+  .custombox:hover{
+    box-shadow: -1px 1px 0px black;
   }
   
 }

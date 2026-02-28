@@ -1,10 +1,18 @@
-import Heading from '../heading.tsx'
+import Heading from '../headings/primaryHeading.tsx'
+import Subtext from '../headings/secondaryHeading.tsx'
+import Button from '../button/primaryButton.tsx'
+import Sidebar from '../misc/sidebar.tsx'
 
 const landingpage = () => {
   return (
-    <div className="full-body w-screen h-screen flex flex-col">
-      <Heading className="justify-center" value="DotSolve AI" />
-      <h1 className='items-start'>hey</h1>
+    <div className="full-body w-screen h-screen">
+      <div className='w-screen h-screen flex flex-col items-center justify-center gap-6'>
+        <Heading value="DotSolve AI" />
+        <Subtext value="your ultimate puzzle solver" />
+        <div className='md:mt-12 mt-8'><Button value="Enter" /></div>
+      </div>
+      <Sidebar />
+
     </div>
   )
 }

@@ -1,25 +1,54 @@
-import Image from '../../assets/connectdots.png'
+import { useState } from "react";
 
-const cards = () => {
+const Card = (props: any) => {
+    const [style, setStyle] = useState({});
+
+    const handleMouseMove = (e: any) => {
+        const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+        const x = (e.clientX - left - width / 2) / 15;
+        const y = (e.clientY - top - height / 2) / 15;
+
+        setStyle({
+            transform: `rotateY(${x}deg) rotateX(${-y}deg)`
+        });
+    };
+
+    const reset = () => {
+        setStyle({
+            transform: "rotateY(0deg) rotateX(0deg)"
+        });
+    };
 
     return (
-        <div className='w-80 h-80 relative'>
-            <div className='w-80 h-80 brightness-40 opacity-95 rounded-2xl'>
-                <img className='rounded-3xl' src={Image} alt="image" />
-            </div>
-            
+        <div className='w-80 h-80 relative perspective-[1000px]'>
+            <div onMouseMove={handleMouseMove}
+                onMouseLeave={reset}
+                style={style}
+                className="group overflow-hidden w-full h-full relative rounded-4xl transition-all duration-200 ease-out"
+            >
+                <div className='w-80 h-80 brightness-40 opacity-95 rounded-2xl'>
+                    <img className='rounded-3xl' src={props.image} alt="image" />
+                </div>
 
-            <div className='absolute left-4 top-1/8 font-extrabold'>
-                <h1 className='text-white uppercase text-3xl font-retro'>Connect The Dots</h1>
-                <h2 className='text-white text-md mt-5'>Get a completely solved grid</h2>
-                <button type="button" className='font-retro uppercase bg-amber-50 mt-18 p-4 text-2xl rounded-xl cursor-pointer border-4 border-[#F1D624]'>
-                    solve
-                </button>
-                
+
+                <div className='absolute left-4 top-1/8 bottom-1/8 flex flex-col gap-3 font-extrabold'>
+                    <h1 className='text-white uppercase text-3xl font-retro'>{props.heading}</h1>
+                    <h2 className='text-white text-md'>{props.desc}</h2>
+                    {/* <button type="button" className='mt-auto w-fit font-retro uppercase bg-amber-50 p-4 text-2xl rounded-xl cursor-pointer border-4 border-[#F1D624]'>
+                            solve
+                        </button> */}
+                    <button type="button" className="mt-auto w-fit font-retro uppercase px-6 py-3 text-xl bg-[#F1D624] text-black rounded-xl border-4 border-black shadow-[6px_6px_0px_black] transition-all duration-150 hover:shadow-[3px_3px_0px_black] hover:translate-x-0.75 hover:translate-y-0.75 active:shadow-none active:translate-x-1.5 active:translate-y-1.5 cursor-pointer hover:drop-shadow-[0_0_8px_#F1D624]">
+                        Solve
+                    </button>
+
+                </div>
+                            
+
+
             </div>
 
         </div>
     )
 }
 
-export default cards
+export default Card

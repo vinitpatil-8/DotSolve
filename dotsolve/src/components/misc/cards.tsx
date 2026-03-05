@@ -20,19 +20,19 @@ const Card = (props: any) => {
     };
 
     return (
-        <div className='w-80 h-80 relative perspective-[1000px]'>
+        <div className='xl:w-80 xl:h-80 sm:w-70 sm:h-70 w-68 h-68 relative perspective-[1000px]'>
             <div onMouseMove={handleMouseMove}
                 onMouseLeave={reset}
                 style={style}
                 className="group overflow-hidden w-full h-full relative rounded-4xl transition-all duration-200 ease-out"
             >
-                <div className='w-80 h-80 brightness-40 opacity-95 rounded-2xl'>
+                <div className='xl:w-80 xl:h-80 sm:w-70 sm:h-70 w-68 h-68 brightness-40 opacity-95 rounded-2xl'>
                     <img className='rounded-3xl' src={props.image} alt="image" />
                 </div>
 
 
-                <div className='absolute left-4 top-1/8 bottom-1/8 flex flex-col gap-3 font-extrabold'>
-                    <h1 className='text-white uppercase text-3xl font-retro'>{props.heading}</h1>
+                <div className='absolute left-4 top-1/8 bottom-1/8 flex flex-col gap-3 xl:font-extrabold font-bold'>
+                    <h1 className='text-white uppercase md:text-3xl sm:text-[22px] text-xl font-retro'>{props.heading}</h1>
                     <h2 className='text-white text-md'>{props.desc}</h2>
                     {/* <button type="button" className='mt-auto w-fit font-retro uppercase bg-amber-50 p-4 text-2xl rounded-xl cursor-pointer border-4 border-[#F1D624]'>
                             solve

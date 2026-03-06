@@ -1,6 +1,7 @@
 import './App.css'
 // import Landingpage from './components/pages/landingpage'
 import Menupage from './components/pages/menupage'
+// import Notfound from './components/pages/notfound'
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <>
       {/* <Landingpage/> */}
       <Menupage/>
+      {/* <Notfound/> */}
     </>
   )
 }

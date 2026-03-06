@@ -8,7 +8,6 @@ import Image5 from '../../assets/queens.png'
 import Image6 from '../../assets/tango.png'
 import Card from '../misc/cards.tsx'
 import Footer from '../sections/footer.tsx'
-// import Sidebar from '../misc/sidebar.tsx'
 
 const menupage = () => {
   return (
@@ -26,7 +25,6 @@ const menupage = () => {
             <Card heading="Nonogram" desc="Get a completely solved grid" image={Image3}/>
         </div>
         <Footer />
-        {/* <Sidebar /> */}
     </div>
   )
 }

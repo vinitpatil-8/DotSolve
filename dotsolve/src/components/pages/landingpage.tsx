@@ -1,7 +1,7 @@
 import Heading from '../headings/primaryHeading.tsx'
 import Subtext from '../headings/secondaryHeading.tsx'
 import Button from '../button/primaryButton.tsx'
-import Sidebar from '../misc/sidebar.tsx'
+import Sidebar from '../sections/sidebar.tsx'
 
 const landingpage = () => {
   return (

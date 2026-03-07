@@ -18,6 +18,20 @@ if (totalScreenWidth >= 640) {
 }
 
 const footer = () => {
+
+    let list_of_texts = [
+        'More Games Coming Soon !',
+        'Try Messaging Me !',
+        'Connect With Me On LinkedIn',
+        'Say Hello...',
+        'Checkout My Other Projects',
+        'Connect With Me On Instagram',
+        'Why is 10 scared ?',
+        'Wait for it...',
+        'Because he is between 9-11',
+        'JK, Pls dont cancel me'
+    ]
+
     return (
         <div className="footer w-full h-98 mt-50 flex flex-col sm:flex-row justify-between">
             <div className='sm:w-[48%] w-full flex flex-col h-98 sm:pl-9 pt-12 sm:text-left text-center'>
@@ -25,7 +39,7 @@ const footer = () => {
                 <div className='hover:text-shadow-[-0px_0px_0px_black] text-shadow-[-1px_1px_0px_black] sm:hover:text-shadow-[-0px_0px_0px_black] sm:text-shadow-[-1.5px_1.5px_0px_black] text-white md:text-3xl sm:text-xl text-[1rem] font-black text-stroke-1 sm:text-stroke-2 font-oswald [word-spacing:5px] duration-500 transition-all'>
                     <Typewriter
                         options={{
-                            strings: ['More Games Coming Soon !', 'Try Messaging Me !', 'Connect With Me On LinkedIn', 'Say Hello...'],
+                            strings: list_of_texts,
                             autoStart: true,
                             loop: true,
                             delay: 75,

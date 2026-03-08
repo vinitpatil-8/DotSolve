@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gaegu&display=swap');
 @import "tailwindcss";
 
 .full-body {
@@ -20,6 +21,7 @@
 @theme{
   --font-oswald: "Oswald", sans-serif;
   --font-retro: "Press Start 2P", system-ui;
+  --font-gaegu: "Gaegu", sans-serif;
 }
 
 @layer utilities {

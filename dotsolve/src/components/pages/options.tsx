@@ -2,6 +2,7 @@ import Floating from '../headings/floating'
 import Heading from '../headings/primaryHeading.tsx'
 import Subtext from '../headings/secondaryHeading.tsx'
 import RedSubtext from '../headings/redHeading.tsx'
+import Dropdown from '../misc/dropdown.tsx'
 
 const options = () => {
     return (
@@ -16,6 +17,10 @@ const options = () => {
             </div>
             <div className='flex flex-col h-fit w-full items-center justify-center mt-4'>
                 <Floating value='Choose your preferred way'/>
+            </div>
+            <div className='flex flex-row h-fit w-full justify-center gap-40'>
+                <Dropdown />
+                <Dropdown />
             </div>
         </div>
     )

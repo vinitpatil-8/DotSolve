@@ -9,7 +9,7 @@ import Image6 from '../../assets/tango.png'
 import Card from '../misc/cards.tsx'
 import Footer from '../sections/footer.tsx'
 
-const menupage = () => {
+const Menupage = () => {
   return (
     <div className="full-body w-full min-h-dvh flex flex-col">
         <div className='w-full h-fit mt-15 flex flex-col items-center gap-6'>
@@ -29,4 +29,4 @@ const menupage = () => {
   )
 }
 
-export default menupage
+export default Menupage

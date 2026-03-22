@@ -7,7 +7,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import Footer from '../sections/footer.tsx'
 
-const options = () => {
+const Options = () => {
     return (
         <div className="full-body w-full min-h-dvh flex flex-col">
             <div className='h-fit w-full'>
@@ -43,4 +43,4 @@ const options = () => {
     )
 }
 
-export default options
+export default Options

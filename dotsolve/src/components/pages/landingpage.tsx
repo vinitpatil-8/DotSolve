@@ -3,7 +3,7 @@ import Subtext from '../headings/secondaryHeading.tsx'
 import Button from '../button/primaryButton.tsx'
 import Sidebar from '../sections/sidebar.tsx'
 
-const landingpage = () => {
+const Landingpage = () => {
   return (
     <div className="full-body w-screen min-h-dvh">
       <div className='w-screen min-h-dvh flex flex-col items-center justify-center gap-6'>
@@ -17,4 +17,4 @@ const landingpage = () => {
   )
 }
 
-export default landingpage
+export default Landingpage

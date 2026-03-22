@@ -1,4 +1,4 @@
-const quickselect = (props:any) => {
+const Quickselect = (props:any) => {
   return (
     <div className="w-fit h-fit m-2 text-black font-gaegu cursor-pointer font-bold sm:text-2xl text-xl">
       <div className={props.class}>
@@ -8,4 +8,4 @@ const quickselect = (props:any) => {
   )
 }
 
-export default quickselect
+export default Quickselect

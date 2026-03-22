@@ -17,7 +17,7 @@ if (totalScreenWidth >= 640) {
     n = 30
 }
 
-const footer = () => {
+const Footer = () => {
 
     let list_of_texts = [
         'More Games Coming Soon !',
@@ -83,4 +83,4 @@ const footer = () => {
     )
 }
 
-export default footer
+export default Footer

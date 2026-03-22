@@ -2,7 +2,7 @@ import Heading from '../headings/primaryHeading.tsx'
 import Subtext from '../headings/secondaryHeading.tsx'
 import Button from '../button/primaryButton.tsx'
 
-const notfound = () => {
+const Notfound = () => {
     return (
         <div className="w-full h-screen full-body flex flex-col items-center justify-center gap-8">
             <Heading value="404" />
@@ -12,4 +12,4 @@ const notfound = () => {
     )
 }
 
-export default notfound
+export default Notfound

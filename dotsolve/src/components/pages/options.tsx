@@ -37,6 +37,7 @@ const Options = () => {
                 </div>
 
                 <Tooltip id="my-tooltip2" />
+                
             </div>
             <Footer />
         </div>

@@ -1,6 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Card = (props: any) => {
+
+    let navigate = useNavigate()
+
+    function handleClick() {
+        navigate(props.link)
+    }
+
     const [style, setStyle] = useState({});
 
     const handleMouseMove = (e: any) => {
@@ -37,12 +45,12 @@ const Card = (props: any) => {
                     {/* <button type="button" className='mt-auto w-fit font-retro uppercase bg-amber-50 p-4 text-2xl rounded-xl cursor-pointer border-4 border-[#F1D624]'>
                             solve
                         </button> */}
-                    <button type="button" className="mt-auto w-fit font-retro uppercase px-6 py-3 text-xl bg-[#F1D624] text-black rounded-xl border-4 border-black shadow-[6px_6px_0px_black] transition-all duration-150 hover:shadow-[3px_3px_0px_black] hover:translate-x-0.75 hover:translate-y-0.75 active:shadow-none active:translate-x-1.5 active:translate-y-1.5 cursor-pointer hover:drop-shadow-[0_0_8px_#F1D624]">
+                    <button onClick={handleClick} type="button" className="mt-auto w-fit font-retro uppercase px-6 py-3 text-xl bg-[#F1D624] text-black rounded-xl border-4 border-black shadow-[6px_6px_0px_black] transition-all duration-150 hover:shadow-[3px_3px_0px_black] hover:translate-x-0.75 hover:translate-y-0.75 active:shadow-none active:translate-x-1.5 active:translate-y-1.5 cursor-pointer hover:drop-shadow-[0_0_8px_#F1D624]">
                         Solve
                     </button>
 
                 </div>
-                            
+
 
 
             </div>

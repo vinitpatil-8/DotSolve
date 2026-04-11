@@ -6,17 +6,30 @@ import Button from '../button/primaryButton.tsx'
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import Footer from '../sections/footer.tsx'
+import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
+
+
 
 const Options = () => {
+
+
+    const params = useParams()
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className="full-body w-full min-h-dvh flex flex-col">
             <div className='h-fit w-full'>
-                <div className='w-fit absolute'><Floating class='sm:hover:text-[1.55rem] hover:text-[1.30rem] transition-all duration-300' value='click to go back' /></div>
+                <div className='w-fit absolute'><Link to='/menu'><Floating class='sm:hover:text-[1.55rem] hover:text-[1.30rem] transition-all duration-300' value='click to go back' /></Link></div>
                 <div className='w-full flex justify-center mt-18'><Heading value='Options' /></div>
             </div>
             <div className='flex flex-row w-full h-fit justify-center mt-15'>
-                <Subtext value='You have selected' />
-                <RedSubtext value='&nbsp;Sudoku' />
+                <Subtext value='You have selected&nbsp;' />
+                <RedSubtext value={params.id} />
             </div>
             <div className='flex flex-col h-fit w-full items-center justify-center mt-4'>
                 <Floating value='Choose your preferred way' />
@@ -37,7 +50,7 @@ const Options = () => {
                 </div>
 
                 <Tooltip id="my-tooltip2" />
-                
+
             </div>
             <Footer />
         </div>

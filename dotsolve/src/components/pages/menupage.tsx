@@ -17,12 +17,12 @@ const Menupage = () => {
             <Subtext value="choose wisely" />
         </div>
         <div className='max-w-7xl mt-20 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20'>
-            <Card heading="Connect The Dots" desc="Get a completely solved grid" image={Image1}/>
-            <Card heading="Sudoku" desc="Get a completely solved grid" image={Image2}/>
-            <Card heading="LinkedIn Tango" desc="Get a completely solved grid" image={Image6}/>
-            <Card heading="LinkedIn Queens" desc="Get a completely solved grid" image={Image5}/>
-            <Card heading="Kakuro" desc="Get a completely solved grid" image={Image4}/>
-            <Card heading="Nonogram" desc="Get a completely solved grid" image={Image3}/>
+            <Card heading="Connect The Dots" desc="Get a completely solved grid" image={Image1} link='Connect-The-Dots'/>
+            <Card heading="Sudoku" desc="Get a completely solved grid" image={Image2} link='Sudoku'/>
+            <Card heading="LinkedIn Tango" desc="Get a completely solved grid" image={Image6} link='LinkedIn-Tango'/>
+            <Card heading="LinkedIn Queens" desc="Get a completely solved grid" image={Image5} link='LinkedIn-Queens'/>
+            <Card heading="Kakuro" desc="Get a completely solved grid" image={Image4} link='Kakuro'/>
+            <Card heading="Nonogram" desc="Get a completely solved grid" image={Image3} link='Nonogram'/>
         </div>
         <Footer />
     </div>

@@ -37,7 +37,7 @@ const Options = () => {
             <div className='flex flex-col sm:flex-row h-fit w-full items-center sm:justify-center gap-20 sm:gap-45 mt-18'>
                 <div data-tooltip-id={"my-tooltip"} data-tooltip-content={"Manually Enter The Grid"}>
 
-                    <Button value='Manual' />
+                    <Link to='manual'><Button value='Manual' /></Link>
 
                 </div>
 
@@ -45,7 +45,7 @@ const Options = () => {
 
                 <div data-tooltip-id={"my-tooltip2"} data-tooltip-content={"Upload / Capture A Picture"}>
 
-                    <Button value='Upload' />
+                    <Link to='upload'><Button value='Upload' /></Link>
 
                 </div>
 

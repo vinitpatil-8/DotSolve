@@ -49,13 +49,13 @@ const Footer = () => {
                 </div>
                 <div className='sm:w-fit w-full mt-2'>
                     <span className='hover:text-shadow-[-0px_0px_0px_black] text-shadow-[-1px_1px_0px_black] sm:hover:text-shadow-[-0px_0px_0px_black] sm:text-shadow-[-1.5px_1.5px_0px_black] text-[#00FF00] md:text-4xl sm:text-2xl text-xl font-black text-stroke-1 sm:text-stroke-2 font-oswald [word-spacing:5px] duration-500 transition-all'>
-                        <a href="http://" target="_blank" rel="noopener noreferrer">
+                        <a href='mailto:vinit.2007.20@gmail.com?subject=Hello&body=Hi,%20I%20have%20some%20feedback' target="_blank" rel="noopener noreferrer">
                             vinit.2007.20@gmail.com
                         </a>
                     </span>
                 </div>
                 <div className='sm:mt-25 mt-10 mx-auto sm:mx-0 w-fit border border-black'>
-                    <Letter href='http://localhost:5173/'>V</Letter>
+                    <Letter href='/'>V</Letter>
                 </div>
             </div>
             <div className='sm:w-[48%] w-full h-98 sm:pr-9 sm:pt-12 pt-10 sm:text-right text-center'>
@@ -75,7 +75,7 @@ const Footer = () => {
                 </div>
                 <div className='w-full hidden sm:flex mt-21 justify-end'>
                     <div className='w-fit border border-[#F1D624] hover:border-black'>
-                        <Letter href='http://localhost:5173/'><AiFillHome /></Letter>
+                        <Letter href='/'><AiFillHome /></Letter>
                     </div>
                 </div>
             </div>

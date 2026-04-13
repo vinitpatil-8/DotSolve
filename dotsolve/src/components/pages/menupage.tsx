@@ -8,6 +8,7 @@ import Image5 from '../../assets/queens.png'
 import Image6 from '../../assets/tango.png'
 import Card from '../misc/cards.tsx'
 import Footer from '../sections/footer.tsx'
+import { Link } from 'react-router-dom'
 
 const Menupage = () => {
   return (
@@ -17,12 +18,12 @@ const Menupage = () => {
             <Subtext value="choose wisely" />
         </div>
         <div className='max-w-7xl mt-20 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20'>
-            <Card heading="Connect The Dots" desc="Get a completely solved grid" image={Image1} link='Connect-The-Dots'/>
             <Card heading="Sudoku" desc="Get a completely solved grid" image={Image2} link='Sudoku'/>
             <Card heading="LinkedIn Tango" desc="Get a completely solved grid" image={Image6} link='LinkedIn-Tango'/>
             <Card heading="LinkedIn Queens" desc="Get a completely solved grid" image={Image5} link='LinkedIn-Queens'/>
             <Card heading="Kakuro" desc="Get a completely solved grid" image={Image4} link='Kakuro'/>
             <Card heading="Nonogram" desc="Get a completely solved grid" image={Image3} link='Nonogram'/>
+            <Link to='coming-soon'><Card heading="Connect The Dots" desc="Get a completely solved grid" image={Image1}/></Link>
         </div>
         <Footer />
     </div>

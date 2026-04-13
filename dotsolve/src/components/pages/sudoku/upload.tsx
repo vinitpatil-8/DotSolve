@@ -1,5 +1,12 @@
 import { useState } from "react";
 import Tesseract from "tesseract.js";
+import Button from '../../button/primaryButton.tsx'
+import Button2 from '../../button/secondaryButton.tsx'
+import UploadButton from '../../button/ImageUpload.tsx'
+import SubHeading from "../../headings/secondaryHeading.tsx";
+import Floating from "../../headings/floating.tsx";
+import { useNavigate } from "react-router-dom";
+import Footer from "../../sections/footer";
 
 const Upload = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -9,7 +16,6 @@ const Upload = () => {
   const [loading, setLoading] = useState(false);
   const [isSolving, setIsSolving] = useState(false);
 
-  // 📸 Upload
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -18,7 +24,6 @@ const Upload = () => {
     setImage(url);
   };
 
-  // 🔄 Reset
   const handleReset = () => {
     setGrid(Array.from({ length: 9 }, () => Array(9).fill(0)));
     setImage(null);
@@ -26,7 +31,6 @@ const Upload = () => {
     setIsSolving(false);
   };
 
-  // 🧠 OCR
   const extractNumbers = async () => {
     if (!image) return;
 
@@ -79,7 +83,6 @@ const Upload = () => {
           try {
             const result = await Tesseract.recognize(dataUrl, "eng");
 
-            // ✅ FIX double digit
             const cleaned = result.data.text.replace(/[^1-9]/g, "");
             const digit = cleaned.length > 0 ? parseInt(cleaned[0]) : 0;
 
@@ -100,35 +103,34 @@ const Upload = () => {
   };
 
   const isGridValid = (board: number[][]): boolean => {
-  const seen = new Set<string>();
+    const seen = new Set<string>();
 
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      const num = board[i][j];
-      if (num === 0) continue;
+    for (let i = 0; i < 9; i++) {
+      for (let j = 0; j < 9; j++) {
+        const num = board[i][j];
+        if (num === 0) continue;
 
-      const rowKey = `r${i}-${num}`;
-      const colKey = `c${j}-${num}`;
-      const boxKey = `b${Math.floor(i / 3)}${Math.floor(j / 3)}-${num}`;
+        const rowKey = `r${i}-${num}`;
+        const colKey = `c${j}-${num}`;
+        const boxKey = `b${Math.floor(i / 3)}${Math.floor(j / 3)}-${num}`;
 
-      if (
-        seen.has(rowKey) ||
-        seen.has(colKey) ||
-        seen.has(boxKey)
-      ) {
-        return false;
+        if (
+          seen.has(rowKey) ||
+          seen.has(colKey) ||
+          seen.has(boxKey)
+        ) {
+          return false;
+        }
+
+        seen.add(rowKey);
+        seen.add(colKey);
+        seen.add(boxKey);
       }
-
-      seen.add(rowKey);
-      seen.add(colKey);
-      seen.add(boxKey);
     }
-  }
 
-  return true;
-};
+    return true;
+  };
 
-  // 🧠 Sudoku logic
   const isValid = (board: number[][], row: number, col: number, num: number) => {
     for (let x = 0; x < 9; x++) {
       if (board[row][x] === num) return false;
@@ -148,99 +150,101 @@ const Upload = () => {
   };
 
   const solveSudoku = (
-  board: number[][],
-  startTime: number,
-  timeLimit: number
-): boolean => {
-  // ⛔ stop if too slow
-  if (Date.now() - startTime > timeLimit) return false;
+    board: number[][],
+    startTime: number,
+    timeLimit: number
+  ): boolean => {
+    if (Date.now() - startTime > timeLimit) return false;
 
-  for (let row = 0; row < 9; row++) {
-    for (let col = 0; col < 9; col++) {
-      if (board[row][col] === 0) {
-        for (let num = 1; num <= 9; num++) {
-          if (isValid(board, row, col, num)) {
-            board[row][col] = num;
+    for (let row = 0; row < 9; row++) {
+      for (let col = 0; col < 9; col++) {
+        if (board[row][col] === 0) {
+          for (let num = 1; num <= 9; num++) {
+            if (isValid(board, row, col, num)) {
+              board[row][col] = num;
 
-            if (solveSudoku(board, startTime, timeLimit)) return true;
+              if (solveSudoku(board, startTime, timeLimit)) return true;
 
-            board[row][col] = 0;
+              board[row][col] = 0;
+            }
           }
+          return false;
         }
-        return false;
       }
     }
-  }
-  return true;
-};
+    return true;
+  };
 
-  // 🔥 Animated Solve
   const handleSolve = async () => {
-  if (isSolving) return;
+    if (isSolving) return;
 
-  if (!isGridValid(grid)) {
-    alert("Invalid Sudoku ❌");
-    return;
-  }
+    if (!isGridValid(grid)) {
+      alert("Invalid Sudoku ❌");
+      return;
+    }
 
-  setIsSolving(true);
+    setIsSolving(true);
 
-  const given = grid.map(row => row.map(cell => cell !== 0));
-  const solvedGrid = grid.map(r => [...r]);
+    const given = grid.map(row => row.map(cell => cell !== 0));
+    const solvedGrid = grid.map(r => [...r]);
 
-  await new Promise(res => setTimeout(res, 0));
+    await new Promise(res => setTimeout(res, 0));
 
-  // ⏱️ 1 second limit (tweak if needed)
-  const solved = solveSudoku(solvedGrid, Date.now(), 1000);
+    const solved = solveSudoku(solvedGrid, Date.now(), 1000);
 
-  if (!solved) {
-    alert("Unsolvable or too complex 😕 Try another image.");
-    setIsSolving(false);
-    return;
-  }
+    if (!solved) {
+      alert("Unsolvable or too complex 😕 Try another image.");
+      setIsSolving(false);
+      return;
+    }
 
-  // 🎬 animate
-  const newGrid = grid.map(r => [...r]);
+    const newGrid = grid.map(r => [...r]);
 
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      if (!given[i][j]) {
-        newGrid[i][j] = solvedGrid[i][j];
-        setGrid(newGrid.map(r => [...r]));
-        await new Promise(res => setTimeout(res, 20));
+    for (let i = 0; i < 9; i++) {
+      for (let j = 0; j < 9; j++) {
+        if (!given[i][j]) {
+          newGrid[i][j] = solvedGrid[i][j];
+          setGrid(newGrid.map(r => [...r]));
+          await new Promise(res => setTimeout(res, 20));
+        }
       }
     }
-  }
 
-  setIsSolving(false);
-};
-
+    setIsSolving(false);
+  };
+  const navigate = useNavigate();
   return (
     <div className="full-body w-full min-h-dvh flex flex-col items-center gap-6 p-6 overflow-x-hidden">
+      <div className="w-fit absolute left-0 top-0" onClick={() => navigate(-1)}>
+        <Floating
+          class="sm:hover:text-[1.55rem] hover:text-[1.30rem] transition-all duration-300"
+          value="click to go back"
+        />
+      </div>
+      <div className="mt-5 text-center">
+        <SubHeading value='Upload An Image And Press Solve' />
+      </div>
 
-      <h1 className="text-2xl font-bold">Upload Sudoku</h1>
+      <UploadButton onUpload={handleUpload} />
 
-      <input type="file" accept="image/*" onChange={handleUpload} />
 
       {image && (
         <img src={image} alt="preview" className="w-64 border" />
       )}
 
-      <button
+      <div
         onClick={extractNumbers}
-        className="px-4 py-2 bg-black text-white rounded"
       >
-        {loading ? "Scanning..." : "Detect Grid"}
-      </button>
+        <Button2 value={loading ? "Scanning..." : "Detect Grid"} />
+      </div>
 
-      {/* GRID */}
       <div className="grid grid-cols-9 border-4 border-black bg-white">
         {grid.map((row, i) =>
           row.map((cell, j) => (
             <div
               key={`${i}-${j}`}
               className={`
-                w-[9vw] h-[9vw] max-w-[50px] max-h-[50px]
+                w-[9vw] h-[9vw] max-w-12.5 max-h-12.5
                 flex items-center justify-center font-semibold
                 border border-black
                 transition-all duration-150
@@ -255,23 +259,20 @@ const Upload = () => {
         )}
       </div>
 
-      {/* BUTTONS */}
-      <div className="flex gap-4">
-        <button
+      <div className="flex gap-10 mt-2">
+        <div
           onClick={handleSolve}
-          disabled={isSolving}
-          className="px-4 py-2 bg-green-600 text-white rounded"
         >
-          {isSolving ? "Solving..." : "Solve"}
-        </button>
+          <Button statess={isSolving} value={isSolving ? "Solving..." : "Solve"} />
+        </div>
 
-        <button
+        <div
           onClick={handleReset}
-          className="px-4 py-2 bg-red-500 text-white rounded"
         >
-          Reset
-        </button>
+          <Button value='Reset' />
+        </div>
       </div>
+      <Footer />
 
     </div>
   );

@@ -13,7 +13,6 @@ const Manual = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // 🔥 STATES
   const [selected, setSelected] = useState<{ row: number; col: number } | null>(null);
 
   const [grid, setGrid] = useState<number[][]>(
@@ -27,7 +26,6 @@ const Manual = () => {
   const [isSolving, setIsSolving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // 🔥 AUTO HIDE ERROR
   useEffect(() => {
     if (error) {
       const timer = setTimeout(() => setError(null), 2000);
@@ -35,7 +33,6 @@ const Manual = () => {
     }
   }, [error]);
 
-  // 🔄 RESET
   const resetGrid = () => {
     setGrid(Array.from({ length: 9 }, () => Array(9).fill(0)));
     setGiven(Array.from({ length: 9 }, () => Array(9).fill(false)));
@@ -43,7 +40,6 @@ const Manual = () => {
     setIsSolving(false);
   };
 
-  // 🧠 INPUT HANDLER
   const handleChange = (row: number, col: number, value: string) => {
     if (isSolving) return;
 
@@ -54,7 +50,6 @@ const Manual = () => {
     }
   };
 
-  // 🧠 VALIDATION (IMPORTANT)
   const isGridValid = (board: number[][]): boolean => {
     const seen = new Set<string>();
 
@@ -80,7 +75,6 @@ const Manual = () => {
     return true;
   };
 
-  // 🧠 CHECK VALID PLACEMENT
   const isValid = (board: number[][], row: number, col: number, num: number) => {
     for (let x = 0; x < 9; x++) {
       if (board[row][x] === num) return false;
@@ -99,7 +93,6 @@ const Manual = () => {
     return true;
   };
 
-  // 🔥 FAST SOLVER
   const solveSudoku = (board: number[][]): boolean => {
     for (let row = 0; row < 9; row++) {
       for (let col = 0; col < 9; col++) {
@@ -120,7 +113,6 @@ const Manual = () => {
     return true;
   };
 
-  // 🔥 SOLVE HANDLER (ANIMATED FINAL FILL)
   const handleSolve = async () => {
     if (isSolving) return;
 
@@ -179,14 +171,12 @@ const Manual = () => {
       </div>
 
       <div className="w-full flex flex-col items-center gap-10">
-        {/* ALERT */}
         {error && (
           <div className="bg-red-500 text-white px-4 py-2 rounded shadow-md animate-pulse">
             {error}
           </div>
         )}
 
-        {/* GRID */}
         <div className="w-full flex justify-center px-2 sm:px-4 mt-4">
           <div className="grid grid-cols-9 border-2 sm:border-4 border-black bg-white">
             {grid.map((row, i) =>

@@ -33,7 +33,7 @@ const Footer = () => {
     ]
 
     return (
-        <div className="footer w-full h-98 mt-50 flex flex-col sm:flex-row justify-between">
+        <div className="footer w-full h-98 flex flex-col sm:flex-row justify-between">
             <div className='sm:w-[48%] w-full flex flex-col h-98 sm:pl-9 pt-12 sm:text-left text-center'>
 
                 <div className='hover:text-shadow-[-0px_0px_0px_black] text-shadow-[-1px_1px_0px_black] sm:hover:text-shadow-[-0px_0px_0px_black] sm:text-shadow-[-1.5px_1.5px_0px_black] text-white md:text-3xl sm:text-xl text-[1rem] font-black text-stroke-1 sm:text-stroke-2 font-oswald [word-spacing:5px] duration-500 transition-all'>

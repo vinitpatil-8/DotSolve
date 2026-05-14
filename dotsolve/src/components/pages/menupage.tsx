@@ -1,33 +1,56 @@
-import Heading from '../headings/primaryHeading.tsx'
-import Subtext from '../headings/secondaryHeading.tsx'
-import Image1 from '../../assets/connectdots.png'
-import Image2 from '../../assets/sudoku.png'
-import Image3 from '../../assets/nonogram.png'
-import Image4 from '../../assets/kakuro.png'
-import Image5 from '../../assets/queens.png'
-import Image6 from '../../assets/tango.png'
-import Card from '../misc/cards.tsx'
-import Footer from '../sections/footer.tsx'
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+import Selector from "../misc/selector.tsx";
+import Footer from "../sections/footer.tsx";
+
+import Menu from "./menu.tsx";
+import Aihelper from "./aihelper.tsx";
+import Puzzles from "./puzzles.tsx";
 
 const Menupage = () => {
+  // DEFAULT CHANGED HERE
+  const [selected, setSelected] = useState("AI Helper");
+
+  const renderPage = () => {
+    switch (selected) {
+      case "AI Helper":
+        return <Aihelper />;
+
+      case "Auto Solver":
+        return <Menu />;
+
+      case "AI Puzzles":
+        return <Puzzles />;
+
+      default:
+        return <Aihelper />;
+    }
+  };
+
   return (
     <div className="full-body w-full min-h-dvh flex flex-col">
-        <div className='w-full h-fit mt-15 flex flex-col items-center gap-6'>
-            <Heading value="menu" />
-            <Subtext value="choose wisely" />
-        </div>
-        <div className='max-w-7xl mt-20 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20'>
-            <Card heading="Sudoku" desc="Get a completely solved grid" image={Image2} link='Sudoku'/>
-            <Card heading="LinkedIn Tango" desc="Get a completely solved grid" image={Image6} link='LinkedIn-Tango'/>
-            <Card heading="LinkedIn Queens" desc="Get a completely solved grid" image={Image5} link='LinkedIn-Queens'/>
-            <Card heading="Kakuro" desc="Get a completely solved grid" image={Image4} link='Kakuro'/>
-            <Card heading="Nonogram" desc="Get a completely solved grid" image={Image3} link='Nonogram'/>
-            <Link to='coming-soon'><Card heading="Connect The Dots" desc="Get a completely solved grid" image={Image1}/></Link>
-        </div>
-        <Footer />
-    </div>
-  )
-}
+      <Selector selected={selected} setSelected={setSelected} />
 
-export default Menupage
+      <div className="relative overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selected}
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -100, opacity: 0 }}
+            transition={{
+              duration: 0.3,
+            }}
+          >
+            {renderPage()}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Menupage;

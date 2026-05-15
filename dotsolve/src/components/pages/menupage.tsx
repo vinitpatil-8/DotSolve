@@ -14,13 +14,13 @@ const Menupage = () => {
 
   const renderPage = () => {
     switch (selected) {
-      case "AI Helper":
+      case "AI Puzzler":
         return <Aihelper />;
 
       case "Auto Solver":
         return <Menu />;
 
-      case "AI Puzzles":
+      case "Puzzles":
         return <Puzzles />;
 
       default:

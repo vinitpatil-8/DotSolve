@@ -43,7 +43,7 @@ const SlideTabs = ({ setSelected }: SlideTabsProps) => {
       className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1"
     >
       <Tab setSelected={setSelected} setPosition={setPosition}>
-        AI Helper
+        AI Puzzler
       </Tab>
 
       <Tab setSelected={setSelected} setPosition={setPosition}>
@@ -51,7 +51,7 @@ const SlideTabs = ({ setSelected }: SlideTabsProps) => {
       </Tab>
 
       <Tab setSelected={setSelected} setPosition={setPosition}>
-        AI Puzzles
+        Puzzles
       </Tab>
 
       <Cursor position={position} />

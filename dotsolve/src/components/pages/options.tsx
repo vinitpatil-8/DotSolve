@@ -52,7 +52,10 @@ const Options = () => {
                 <Tooltip id="my-tooltip2" />
 
             </div>
-            <Footer />
+            <div className='mt-50'>
+
+                <Footer />
+            </div>
         </div>
     )
 }

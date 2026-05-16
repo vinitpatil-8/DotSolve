@@ -229,8 +229,9 @@ const Manual = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
+      <div className="mt-50">
+        <Footer />
+      </div>
     </div>
   );
 };

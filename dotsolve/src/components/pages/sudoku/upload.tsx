@@ -272,7 +272,9 @@ const Upload = () => {
           <Button value='Reset' />
         </div>
       </div>
-      <Footer />
+      <div className="mt-50">
+        <Footer />
+      </div>
 
     </div>
   );

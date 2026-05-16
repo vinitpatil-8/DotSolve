@@ -161,11 +161,11 @@ const Manual = () => {
           />
         </div>
 
-        <div className="w-full flex justify-center mt-18">
+        <div className="w-full flex justify-center mt-18 text-center">
           <Heading value="Enter The Grid" />
         </div>
 
-        <div className="w-full flex justify-center mt-18">
+        <div className="w-full flex justify-center mb-18 mt-10 text-center">
           <Subtext value="Enter the grid and press solve :)" />
         </div>
       </div>

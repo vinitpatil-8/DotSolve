@@ -58,7 +58,7 @@ const RevealAnswer = ({
       className="
         bg-black
         text-white
-        rounded-[2rem]
+        rounded-4xl
         p-8
         cursor-pointer
         transition-all
@@ -180,9 +180,9 @@ const Puzzles = () => {
           className="
             w-full
             max-w-6xl
-            min-h-[550px]
+            min-h-137.5
             bg-white
-            rounded-[2rem]
+            rounded-4xl
             overflow-hidden
             shadow-[0_10px_40px_rgba(0,0,0,0.08)]
             flex
@@ -322,7 +322,7 @@ const Puzzles = () => {
                     bg-[#fafafa]
                     border
                     border-gray-200
-                    rounded-[2rem]
+                    rounded-4xl
                     p-8
                     shadow-sm
                   "

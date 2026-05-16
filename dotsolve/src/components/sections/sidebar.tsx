@@ -1,6 +1,6 @@
 import { LuGithub } from "react-icons/lu";
 import { LuLinkedin } from "react-icons/lu";
-import { LuInstagram } from "react-icons/lu";
+import { MdOutlineEmail } from "react-icons/md";
 
 const handleClick = (value: string) => {
     window.open(value, "_blank")
@@ -22,8 +22,8 @@ const Sidebar = () => {
         <span onClick={() => handleClick("https://www.linkedin.com/in/vinit-patil-085205384/")} className="w-full h-fit flex justify-center">
             <LuLinkedin size={n}/>
         </span>
-        <span onClick={() => handleClick("https://instagram.com/vinitpatil_8")} className="w-full h-fit flex justify-center">
-            <LuInstagram size={n}/>
+        <span onClick={() => window.location.href = "mailto:vinit.2007.20@gmail.com?subject=Hello&body=Hi,%20I%20have%20some%20feedback"} className="w-full h-fit flex justify-center">
+            <MdOutlineEmail size={n}/>
         </span>
     </div>
   )

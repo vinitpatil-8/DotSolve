@@ -7,6 +7,7 @@ import ComingSoon from './components/pages/comingsoon'
 import SudokuManual from './components/pages/sudoku/manual'
 import SudokuUpload from './components/pages/sudoku/upload'
 import {Route, Routes} from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/menu/Sudoku/upload' element={<SudokuUpload/>}/>
         <Route path='*' element={<Notfound />}/> 
       </Routes>
+      <Analytics />
     </>
   )
 }
